@@ -4,14 +4,13 @@ require 'csv'
 require_relative 'common'
 
 result = Hash.new { |hash, key| hash[key] = {total: 0, avec_site: 0} }
-POPULATIONS = DB[:populations]
+
 population_by_insee = {}
 POPULATIONS.each do |population|
 	population_by_insee[population[:code_insee]] = population[:population]
 end
 
-SITES = DB[:sites]
-DB[:villes].each do |ville|
+VILLES.each do |ville|
 	code_insee = ville[:code_insee]
 	population_ville = population_by_insee[code_insee]
 	if population_ville

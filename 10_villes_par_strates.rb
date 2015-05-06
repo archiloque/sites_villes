@@ -20,13 +20,12 @@ def strate_ville?(population_ville)
 end
 
 result = Hash.new { |hash, key| hash[key] = Hash.new(0) }
-POPULATIONS = DB[:populations]
 population_by_insee = {}
 POPULATIONS.each do |population|
 	population_by_insee[population[:code_insee]] = population[:population]
 end
 
-DB[:villes].each do |ville|
+VILLES.each do |ville|
 	code_insee = ville[:code_insee]
 	population_ville = population_by_insee[code_insee]
 	if population_ville

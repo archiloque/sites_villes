@@ -6,14 +6,12 @@ require 'addressable/uri'
 
 require_relative 'common'
 
-HTTPS = DB[:https]
-
 #HTTPS.delete
 
 sites_number = 0
 progress_bar = ProgressBar.create({format: '%J%% %a%e |%B|'})
 hydra = Typhoeus::Hydra.new(max_concurrency: 50)
-DB[:villes].where('url_site is not null and id not in (select ville_id from https)').each do |ville|
+VILLES.where('url_site is not null and id not in (select ville_id from https)').each do |ville|
   sites_number += 1
   original_url = ville[:url_site]
   addressable_uri = Addressable::URI.heuristic_parse(original_url)

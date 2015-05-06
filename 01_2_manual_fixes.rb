@@ -6,12 +6,6 @@
 require 'nokogiri'
 require_relative 'common'
 
-SITES = DB[:sites]
-VILLES = DB[:villes]
-HTTPS = DB[:https]
-HEADERS = DB[:headers]
-SYSTEMS = DB[:systems]
-
 # Manual fixes:
 [
     ['64001', 'http://www.aast.free.fr'],

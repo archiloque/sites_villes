@@ -3,10 +3,6 @@ require 'csv'
 require_relative 'common'
 require 'set'
 
-SITES = DB[:sites]
-SYSTEMS = DB[:systems]
-POPULATIONS = DB[:populations]
-
 total = 0
 stats_language = Hash.new(0)
 stats_language_version = Hash.new(0)

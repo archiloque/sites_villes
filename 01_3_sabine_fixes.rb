@@ -7,12 +7,6 @@ require 'nokogiri'
 require_relative 'common'
 require 'csv'
 
-SITES = DB[:sites]
-VILLES = DB[:villes]
-HTTPS = DB[:https]
-HEADERS = DB[:headers]
-SYSTEMS = DB[:systems]
-
 CSV.foreach("extraction_villes_sabine.csv", col_sep: ',', headers: true) do |row|
   code_insee = row['code insee']
   if code_insee.length == 4

@@ -4,11 +4,6 @@
 require_relative 'common'
 require 'nokogiri'
 
-HEADERS = DB[:headers]
-SITES = DB[:sites]
-SYSTEMS = DB[:systems]
-VILLES = DB[:villes]
-
 PHP_REGEX = /\APHP\/(\d+)\.(\d+)\.(\d+)/
 PHP_REGEX_PARENS = /\A\(PHP\/(\d+)\.(\d+)\.(\d+)/
 SPIP_REGEX = /\ASPIP ([^ ]+) @ www.spip.net/

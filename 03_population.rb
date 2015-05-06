@@ -3,8 +3,6 @@
 require 'csv'
 require_relative 'common'
 
-POPULATIONS = DB[:populations]
-
 CSV.foreach('../donnees/Commune_Insee_population.csv', {headers: true}) do |row|
   unless POPULATIONS.where(:code_insee => row['Code Insee']).first
     p row['Code Insee']

@@ -6,8 +6,6 @@
 require 'nokogiri'
 require_relative 'common'
 
-VILLES = DB[:villes]
-
 ['../donnees/organismes/**/mairie-*.xml', '../donnees/organismes/75/paris_mairie*.xml'].each do |glob|
   Dir.glob(glob).each do |xml_file_path|
     File.open(xml_file_path, 'r') do |xml_file|

@@ -3,8 +3,6 @@
 require 'addressable/uri'
 require_relative 'common'
 
-HTTPS = DB[:https]
-
 total = 0
 valids = 0
 HTTPS.where('ville_id in (select ville_id from sites where code = 200)').each do |https_result|

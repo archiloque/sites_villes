@@ -3,10 +3,6 @@
 require_relative 'common'
 require 'set'
 
-VILLES = DB[:villes]
-SITES = DB[:sites]
-SYSTEMS = DB[:systems]
-
 MESSAGES = Set.new
 
 SUPPORTED_APACHE_VERSIONS = ['2.2.29']
@@ -122,9 +118,9 @@ def add_message(message)
   end
 end
 
-DB[:villes].each do |ville|
+VILLES.each do |ville|
   category = CATEGORY_NO_SITE
-  if site = SITES.where('ville_id = ? and code = ?', ville[:id], 200).first
+  if (site = SITES.where('ville_id = ? and code = ?', ville[:id], 200).first)
     category = CATEGORY_MASQUE
     if (system = SYSTEMS.where('ville_id = ?', ville[:id]).first)
       language = system[:language] || ''
@@ -256,7 +252,7 @@ DB[:villes].each do |ville|
 
 
   if ville[:category] != category
-    VILLES.where("id = ?", ville[:id]).update({:category => category})
+    VILLES.where('id = ?', ville[:id]).update({:category => category})
   end
 
 end

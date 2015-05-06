@@ -2,6 +2,13 @@ require 'sequel'
 
 DB = Sequel.connect('postgres://sites_villes:sites_villes@localhost:5432/sites_villes')
 
+SITES = DB[:sites]
+HEADERS = DB[:headers]
+SYSTEMS = DB[:systems]
+HTTPS = DB[:https]
+VILLES = DB[:villes]
+POPULATIONS = DB[:populations]
+
 class String
   def encode_brutal
     encode('utf-8', {:invalid => :replace, :undef => :replace, :replace => '?'})
@@ -9,7 +16,7 @@ class String
 end
 
 
-SUPPORTED_PHP_VERSIONS = ['5.4.37', '5.5.21', '5.6.5', '5.6.6']
+SUPPORTED_PHP_VERSIONS = ['5.5.22', '5.4.39', '5.4.38', '5.4.37', '5.5.21', '5.6.5', '5.6.6']
 UNSUPPORTED_PHP_VERSIONS = [
     '5.6.4', '5.6.3', '5.6.1', '5.6.0',
     '5.5.20', '5.5.19', '5.5.18', '5.5.17', '5.5.16', '5.5.15', '5.5.14', '5.5.13', '5.5.11', '5.5.10', '5.5.8', '5.5.7', '5.5.5', '5.5.4', '5.5.3', '5.5.2', '5.5.1', '5.5.0',
